@@ -1,4 +1,4 @@
-<x-guest-layout>
+{{-- <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -49,4 +49,79 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</x-guest-layout> --}}
+
+@extends('frontend.layouts.master')
+
+@section('content')
+    <!--=============================
+        BREADCRUMB START
+    ==============================-->
+    @include('frontend.home.components.bread_crumb')
+    <!--=============================
+        BREADCRUMB END
+    ==============================-->
+
+
+    <!--=========================
+        SIGN UP START
+    ==========================-->
+    <section class="fp__signup" style="background: url({{ asset('front_end/images/login_bg.jpg') }});">
+        <div class="fp__signup_overlay pt_125 xs_pt_95 pb_100 xs_pb_70">
+            <div class=" container">
+                <div class="row wow fadeInUp" data-wow-duration="1s">
+                    <div class="col-xxl-5 col-xl-6 col-md-9 col-lg-7 m-auto">
+                        <div class="fp__login_area">
+                            <h2>Tạo tài khoản</h2>
+                            <form method="POST" action="{{ route('register') }}">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="fp__login_imput">
+                                            <label>Tên</label>
+                                            <input type="text" name="name" value="{{ old('name') }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <div class="fp__login_imput">
+                                            <label>Mail</label>
+                                            <input type="email" name="email" value="{{ old('email') }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <div class="fp__login_imput">
+                                            <label>Mật khẩu</label>
+                                            <input type="password" name="password">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <div class="fp__login_imput">
+                                            <label>Xác thực mật khẩu</label>
+                                            <input type="password" name="password_confirmation">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <div class="fp__login_imput">
+                                            <button type="submit" class="common_btn">Đăng nhập</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <ul class="d-flex">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                            <p class="create_account">Đã có tài khoản ? <a href="{{ route('login') }}"> Đăng nhập</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=========================
+        SIGN UP END
+    ==========================-->
+
+@endsection
