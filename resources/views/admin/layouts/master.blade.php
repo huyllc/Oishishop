@@ -8,7 +8,7 @@
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{ asset('admin/assets/modules/bootstrap/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('admin/assets/modules/fontawesome/css/all.min.css') }}">
-
+  <link rel="stylesheet" href="{{ asset('admin/assets/css/toastr.min.css') }}">"
   <!-- CSS Libraries -->
   {{-- <link rel="stylesheet" href="{{ asset('admin/assets/modules/jqvmap/dist/jqvmap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('admin/assets/modules/weather-icon/css/weather-icons.min.css') }}">
@@ -57,6 +57,16 @@
   <script src="{{ asset('admin/assets/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
   {{-- <script src="{{ asset('admin/assets/modules/moment.min.js') }}"></script> --}}
   <script src="{{ asset('admin/assets/js/stisla.js') }}"></script>
+  <script src="{{ asset('admin/assets/js/toastr.min.js') }}"></script>
+
+  <script>
+    toastr.options.progressBar = true;
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            toastr.error("{{ $error }}")
+        @endforeach
+    @endif
+</script>
 
   <!-- JS Libraies -->
   {{-- <script src="{{ asset('admin/assets/modules/simple-weather/jquery.simpleWeather.min.js') }}"></script>
