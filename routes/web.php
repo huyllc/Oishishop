@@ -19,7 +19,7 @@ Route::get('/', [FrontendController::class, 'index'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})-> name('dashboard');
+})->name('dashboard');
 // middleware(['auth', 'verified'])->
 /** Admin Route */
 Route::get('/admin/login', [AdminAuthController::class, 'index'])->name('admin.login');

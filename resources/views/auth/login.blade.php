@@ -50,17 +50,17 @@
 
 @section('content')
     <!--=============================
-            BREADCRUMB START
-        ==============================-->
+                BREADCRUMB START
+            ==============================-->
     @include('frontend.home.components.bread_crumb')
     <!--=============================
-            BREADCRUMB END
-        ==============================-->
+                BREADCRUMB END
+            ==============================-->
 
 
     <!--=========================
-            SIGNIN START
-        ==========================-->
+                SIGNIN START
+            ==========================-->
     <section class="fp__signin" style="background: url({{ asset('front_end/images/login_bg.jpg') }});">
         <div class="fp__signin_overlay pt_125 xs_pt_95 pb_100 xs_pb_70">
             <div class="container">
@@ -74,7 +74,7 @@
                                     <div class="col-xl-12">
                                         <div class="fp__login_imput">
                                             <label>Mail</label>
-                                            <input type="email" name="email" value="{{ old('email')}}">
+                                            <input type="email" name="email" value="{{ old('email') }}">
                                         </div>
                                     </div>
                                     <div class="col-xl-12">
@@ -108,7 +108,8 @@
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
                             </ul>
-                            <p class="create_account">Chưa có tài khoản ? <a href="{{ route('register') }}">Tạo tài khoản</a>
+                            <p class="create_account">Chưa có tài khoản ? <a href="{{ route('register') }}">Tạo tài
+                                    khoản</a>
                             </p>
                         </div>
                     </div>
@@ -117,6 +118,6 @@
         </div>
     </section>
     <!--=========================
-            SIGNIN END
-        ==========================-->
+                SIGNIN END
+            ==========================-->
 @endsection
