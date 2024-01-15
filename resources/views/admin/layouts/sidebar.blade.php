@@ -9,7 +9,7 @@
     <ul class="navbar-nav navbar-right">
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="{{ asset(auth()->user()->avatar )}}" class="rounded-circle mr-1">
+                <img alt="image" src="{{ asset(auth()->user()->avatar) }}" class="rounded-circle mr-1">
                 <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
@@ -24,9 +24,13 @@
                     <i class="fas fa-cog"></i> Settings
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item has-icon text-danger">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a href="#"onclick="event.preventDefault();
+                    this.closest('form').submit();" class="dropdown-item has-icon text-danger">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </form>
             </div>
         </li>
     </ul>
@@ -164,8 +168,8 @@
             <li><a href="utilities-subscribe.html">Subscribe</a></li>
           </ul>
         </li> --}}
-        <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i> <span>About Us</span></a>
-        </li>
+            <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i> <span>About Us</span></a>
+            </li>
         </ul>
 
         {{-- <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

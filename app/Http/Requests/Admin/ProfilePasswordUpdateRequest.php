@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProfileUpdateRequest extends FormRequest
+class ProfilePasswordUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,15 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'avatar' => ['nullable', 'image', 'max:3000'],
-            'name' => ['required', 'string', 'max:50'],
-            'email' => ['required', 'string', 'email', 'unique:users,email,'.auth()->user()->id],
+            //
+            'current_password' => ['required', 'current_password'],
+            'password' => ['required','min:8','confirmed'],
+        ];
+    }
+
+    public function messages(){
+        return [
+            'current_password.current_password' => 'Mật khẩu không trùng khớp với mật khẩu cũ',
         ];
     }
 }
